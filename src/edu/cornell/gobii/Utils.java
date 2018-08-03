@@ -11,7 +11,7 @@ import java.io.PrintWriter;
  * @created 6.28.18
  * @updated 8.2.	18
  */
-public  final class Utils {
+public final class Utils {
 	
 	public static final HashMap<String, String> IUPAC = new HashMap<String, String>();
 	
