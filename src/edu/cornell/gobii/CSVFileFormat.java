@@ -1,4 +1,4 @@
-package edu.cornell.gobii;
+package edu.cornell;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -7,12 +7,11 @@ import java.util.Scanner;
 
 
 /**
- * The Class CSVFileFormat.
  * A file format suitible for those with extension of .csv
  * @author Tony Yang
  * @version 0.1
  * @created 6.28.18
- * @updated 8.2.	18
+ * @updated 8.2.18
  */
 public class CSVFileFormat extends FileFormatAbstract implements FileFormatInterface{
 	
@@ -34,12 +33,13 @@ public class CSVFileFormat extends FileFormatAbstract implements FileFormatInter
 		catch (FileNotFoundException e)
 		{
 			e.getStackTrace();
+			closeFile();
 		}
 	}
 	
 	/* 
-	 * Loads a file
-	 * @see edu.cornell.gobii.FileFormatInterface#loadFile()
+	 * Loads the input file
+	 * @see edu.cornell.FileFormatInterface#loadFile()
 	 */
 	public void loadFile()
 	{
@@ -60,7 +60,7 @@ public class CSVFileFormat extends FileFormatAbstract implements FileFormatInter
 	/* 
 	 * Returns the converted genotype record 
 	 * @return The converted genotype record as an ArrayList
-	 * @see edu.cornell.gobii.FileFormatInterface#getRecord()
+	 * @see edu.cornell.FileFormatInterface#getRecord()
 	 */
 	public ArrayList<String> getRecord()
 	{

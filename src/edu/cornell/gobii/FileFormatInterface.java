@@ -1,35 +1,39 @@
-package edu.cornell.gobii;
+package edu.cornell;
 import java.util.ArrayList;
 
 /**
- * The Interface FileFormatInterface.
- * Generic interface for genotype files of different file formats
+ * Interface for genotype files of different file formats
+ * Contains basic methods used for specific file formats
  * @author Tony Yang
  * @version 0.1
  * @created 6.28.18
- * @updated 8.2.	18
+ * @updated 8.2.18
  */
 public interface FileFormatInterface {
 	
 	/**
-	 * Loads a file
+	 * Loads the input file 
+	 * Initializes dnarunList with a new ArrayList containing dnarun informations
 	 */
 	public void loadFile(); 
 	
 	/**
-	 * Closes file
+	 * Closes the input file if the scanner is open. 
+	 * If the input file does not exist, the method will be called.
 	 */
 	public void closeFile();
 	
 	/**
-	 * Returns the genotype record
-	 * @return The genotype record as an ArrayList
+	 * Reads through each line of the input file
+	 * Converts the genotype records for each line using convertRecord from Utils class
+	 * Returns the converted genotype record 
+	 * @return The converted genotype record as an ArrayList
 	 */
 	public ArrayList<String> getRecord();
 	
 	/**
-	 * Returns the index of a record
-	 * @return The record index
+	 * Returns the record index which is the position of the scanner in a file
+	 * @return The record index 
 	 */
 	public int getRecordIndex();
 	

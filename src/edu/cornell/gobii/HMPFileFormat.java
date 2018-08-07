@@ -1,4 +1,4 @@
-package edu.cornell.gobii;
+package edu.cornell;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -6,12 +6,11 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 /**
- * The Class HMPFileFormat.
  * A file format suitible for those with extension of .hmp.txt
  * @author Tony Yang
  * @version 0.1
  * @created 6.28.18
- * @updated 8.2.	18
+ * @updated 8.2.18
  */
 public class HMPFileFormat extends FileFormatAbstract implements FileFormatInterface {
 	
@@ -38,8 +37,9 @@ public class HMPFileFormat extends FileFormatAbstract implements FileFormatInter
 	}
 	
 	/* 
-	 * Loads a file
-	 * @see edu.cornell.gobii.FileFormatInterface#loadFile()
+	 * Loads the input file
+	 * Checks for the first line of the file that starts without a hash 
+	 * @see edu.cornell.FileFormatInterface#loadFile()
 	 */
 	public void loadFile()
 	{
@@ -72,7 +72,7 @@ public class HMPFileFormat extends FileFormatAbstract implements FileFormatInter
 	/* 
 	 * Returns the converted genotype record 
 	 * @return The converted genotype record as an ArrayList
-	 * @see edu.cornell.gobii.FileFormatInterface#getRecord()
+	 * @see edu.cornell.FileFormatInterface#getRecord()
 	 */
 	public ArrayList<String> getRecord()
 	{

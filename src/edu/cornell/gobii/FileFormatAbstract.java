@@ -1,34 +1,32 @@
-package edu.cornell.gobii;
+package edu.cornell;
 import java.util.*;
 
 /**
- * The Class FileFormatAbstract.
  * Provides generic methods for genotype files of different file formats
  * @author Tony Yang
  * @version 0.1
  * @created 6.28.18
- * @updated 8.2.	18
+ * @updated 8.2.18
  */
 public abstract class FileFormatAbstract implements FileFormatInterface {
 
+	/* dnarunList is a list of dnaruns */
+	protected ArrayList<String> dnarunList = new ArrayList<String>(); 
 	
-	/** The dnarun list. */
-	protected ArrayList<String> dnarunList = new ArrayList<String>();
+	/* filename is the name of the input files */
+	private String filename = null; 
 	
-	/** The filename */
-	private String filename = null;
+	/* sc is the Scanner used to read input files */
+	protected Scanner sc = null; 
 	
-	/** The Scanner sc */
-	protected Scanner sc = null;
+	/* recordIndex is a pointer to the position of the scanner in a file */
+	protected static int recordIndex = 0;	
 	
-	/** The record index. */
-	protected static int recordIndex = 0;
+	/*delimiter is a character that the input file uses to separate genotype information */
+	protected String delimiter = null; 
 	
-	/** The delimiter. */
-	protected String delimiter = null;
-	
-	/** The marker. */
-	protected String marker = null;
+	/* marker is the name of each DNA marker */
+	protected String marker = null; 
 	
 
 	/**
@@ -37,14 +35,6 @@ public abstract class FileFormatAbstract implements FileFormatInterface {
 	 */
 	public ArrayList<String> getDnarunlist() {
 		return dnarunList;
-	}
-
-	/**
-	 * Sets the dnarunlist.
-	 * @param dnarunlist: The new dnarunlist
-	 */
-	public void setDnarunlist(ArrayList<String> dnarunlist) {
-		this.dnarunList = dnarunList;
 	}
 
 	/**
@@ -80,20 +70,12 @@ public abstract class FileFormatAbstract implements FileFormatInterface {
 	}
 
 	/* 
-	 * Returns the index of a record
+	 * Returns the record index
 	 * @return The record index
-	 * @see edu.cornell.gobii.FileFormatInterface#getRecordIndex()
+	 * @see edu.cornell.FileFormatInterface#getRecordIndex()
 	 */
 	public int getRecordIndex() {
 		return recordIndex;
-	}
-
-	/**
-	 * Sets the record index.
-	 * @param recordIndex: The new record index
-	 */
-	public void setRecordIndex(int recordIndex) {
-		this.recordIndex = recordIndex;
 	}
 
 	/**
@@ -113,7 +95,7 @@ public abstract class FileFormatAbstract implements FileFormatInterface {
 	}
 	
 	/**
-	 * Returns List of DNA runs
+	 * Returns list of DNA runs
 	 * @return The list of DNA runs 
 	 */
 	public ArrayList<String> getDNAruns()
@@ -136,8 +118,8 @@ public abstract class FileFormatAbstract implements FileFormatInterface {
 	}
 	
 	/* 
-	 * Closes file
-	 * @see edu.cornell.gobii.FileFormatInterface#closeFile()
+	 * Closes the input file if scanner is open
+	 * @see edu.cornell.FileFormatInterface#closeFile()
 	 */
 	public void closeFile()
 	{

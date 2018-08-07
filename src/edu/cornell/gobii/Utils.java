@@ -1,20 +1,20 @@
-package edu.cornell.gobii;
+package edu.cornell;
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.io.PrintWriter;
 
 /**
- * The Class Utils
- * Contains utility methods for File Comparator
+ * Contains utility methods for the comparison of genotype records between files
+ * M
  * @author Tony Yang
  * @version 0.1
  * @created 6.28.18
- * @updated 8.2.	18
+ * @updated 8.2.18
  */
 public  final class Utils {
 	
+	/* IUPAC is a HashMap that contains the 2 Letter Nucleotide characters (values) for IUPAC characters (keys) */
 	public static final HashMap<String, String> IUPAC = new HashMap<String, String>();
-	
 	
 	static {
 		IUPAC.put("A", "AA");
@@ -39,9 +39,8 @@ public  final class Utils {
 	}
 	
 	/**
-	 * Compare records.
-	 * Compares the Genotype records of f1 and f2
-	 * @param out: PrintWriter used to print to output.txt
+	 * Compares the genotype records of f1 and f2 line by line
+	 * @param out: The PrintWriter used to print to output.txt
 	 * @param f1: The first FileFormatInterface 
 	 * @param f2: The second FileFormatInterface 
 	 */
@@ -66,8 +65,7 @@ public  final class Utils {
 	}
 
 	/**
-	 * Convert record.
-	 * Converts a list of variants based on their format
+	 * Converts a list of variants based on their initial format to a 2 Letter Nucleotide format
 	 * @param recordlst: The original list of variants
 	 * @return The converted list of variants
 	 */
