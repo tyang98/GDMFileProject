@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.io.PrintWriter;
 
 /**
- * The Class Utils
  * Contains utility methods for File Comparator
  * @author Tony Yang
  * @version 0.1
