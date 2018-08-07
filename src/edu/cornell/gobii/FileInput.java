@@ -13,7 +13,6 @@ import java.io.*;
  */
 public class FileInput {
 
-		/** The PrintWriter out */
 		public static PrintWriter out;
 	
 		public static void main(String[] args) 
