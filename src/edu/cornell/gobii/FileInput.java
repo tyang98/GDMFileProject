@@ -5,7 +5,6 @@ import java.util.*;
 import java.io.*;
 
 /**
- * The Class FileInput.
  * Tests the two input file formats and compares record data.
  * @author Tony Yang
  * @version 0.1
