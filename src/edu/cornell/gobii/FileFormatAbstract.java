@@ -11,23 +11,11 @@ import java.util.*;
  */
 public abstract class FileFormatAbstract implements FileFormatInterface {
 
-	
-	/** The dnarun list. */
 	protected ArrayList<String> dnarunList = new ArrayList<String>();
-	
-	/** The filename */
 	private String filename = null;
-	
-	/** The Scanner sc */
 	protected Scanner sc = null;
-	
-	/** The record index. */
 	protected static int recordIndex = 0;
-	
-	/** The delimiter. */
 	protected String delimiter = null;
-	
-	/** The marker. */
 	protected String marker = null;
 	
 
