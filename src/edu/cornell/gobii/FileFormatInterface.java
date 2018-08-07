@@ -2,12 +2,11 @@ package edu.cornell.gobii;
 import java.util.ArrayList;
 
 /**
- * The Interface FileFormatInterface.
  * Generic interface for genotype files of different file formats
  * @author Tony Yang
  * @version 0.1
  * @created 6.28.18
- * @updated 8.2.	18
+ * @updated 8.2.18
  */
 public interface FileFormatInterface {
 	
