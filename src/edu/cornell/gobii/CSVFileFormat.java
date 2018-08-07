@@ -54,6 +54,7 @@ public class CSVFileFormat extends FileFormatAbstract implements FileFormatInter
 		catch (Exception e) 
 		{
 			e.getStackTrace();
+			closeFile();
 		}
 	}
 	

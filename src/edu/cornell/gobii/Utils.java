@@ -4,14 +4,18 @@ import java.util.ArrayList;
 import java.io.PrintWriter;
 
 /**
+<<<<<<< HEAD
  * Contains utility methods for the comparison of genotype records between files
  * M
+=======
+ * Contains utility methods for File Comparator
+>>>>>>> 9022ebe43319a48b381e4b344e47d0f84a22aabc
  * @author Tony Yang
  * @version 0.1
  * @created 6.28.18
  * @updated 8.2.18
  */
-public  final class Utils {
+public final class Utils {
 	
 	/* IUPAC is a HashMap that contains the 2 Letter Nucleotide characters (values) for IUPAC characters (keys) */
 	public static final HashMap<String, String> IUPAC = new HashMap<String, String>();

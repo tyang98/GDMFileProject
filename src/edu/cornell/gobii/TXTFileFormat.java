@@ -54,6 +54,7 @@ public class TXTFileFormat extends FileFormatAbstract implements FileFormatInter
 		catch (Exception e) 
 		{
 			e.getStackTrace();
+			closeFile();
 		}
 	}
 	

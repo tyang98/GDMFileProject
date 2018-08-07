@@ -10,6 +10,7 @@ import java.util.*;
  */
 public abstract class FileFormatAbstract implements FileFormatInterface {
 
+<<<<<<< HEAD
 	/* dnarunList is a list of dnaruns */
 	protected ArrayList<String> dnarunList = new ArrayList<String>(); 
 	
@@ -27,6 +28,14 @@ public abstract class FileFormatAbstract implements FileFormatInterface {
 	
 	/* marker is the name of each DNA marker */
 	protected String marker = null; 
+=======
+	protected ArrayList<String> dnarunList = new ArrayList<String>();
+	private String filename = null;
+	protected Scanner sc = null;
+	protected static int recordIndex = 0;
+	protected String delimiter = null;
+	protected String marker = null;
+>>>>>>> 9022ebe43319a48b381e4b344e47d0f84a22aabc
 	
 
 	/**

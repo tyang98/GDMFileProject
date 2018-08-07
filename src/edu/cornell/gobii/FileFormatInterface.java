@@ -2,8 +2,12 @@ package edu.cornell;
 import java.util.ArrayList;
 
 /**
+<<<<<<< HEAD
  * Interface for genotype files of different file formats
  * Contains basic methods used for specific file formats
+=======
+ * Generic interface for genotype files of different file formats
+>>>>>>> 9022ebe43319a48b381e4b344e47d0f84a22aabc
  * @author Tony Yang
  * @version 0.1
  * @created 6.28.18
