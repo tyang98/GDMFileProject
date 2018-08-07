@@ -7,7 +7,6 @@ import java.util.Scanner;
 
 
 /**
- * The Class CSVFileFormat.
  * A file format suitible for those with extension of .csv
  * @author Tony Yang
  * @version 0.1
