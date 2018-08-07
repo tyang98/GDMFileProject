@@ -6,12 +6,11 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 /**
- * The Class HMPFileFormat.
  * A file format suitible for those with extension of .hmp.txt
  * @author Tony Yang
  * @version 0.1
  * @created 6.28.18
- * @updated 8.2.	18
+ * @updated 8.2.18
  */
 public class HMPFileFormat extends FileFormatAbstract implements FileFormatInterface {
 	
