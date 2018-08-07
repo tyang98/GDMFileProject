@@ -6,12 +6,11 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 /**
- * The Class TXTFileFormat.
  * A file format suitible for those with extension of .txt
  * @author Tony Yang
  * @version 0.1
  * @created 6.28.18
- * @updated 8.2.	18
+ * @updated 8.2.18
  */
 
 public class TXTFileFormat extends FileFormatAbstract implements FileFormatInterface {
