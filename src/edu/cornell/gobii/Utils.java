@@ -1,20 +1,23 @@
 package edu.cornell;
 import java.util.HashMap;
-import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 import java.io.PrintWriter;
 
 /**
  * Contains utility methods for the comparison of genotype records between files
- * Contains utility methods for File Comparator
+ * 
  * @author Tony Yang
  * @version 0.1
  * @created 6.28.18
  * @updated 8.2.18
  */
-public final class Utils {
+public  final class Utils {
 	
 	/* IUPAC is a HashMap that contains the 2 Letter Nucleotide characters (values) for IUPAC characters (keys) */
 	public static final HashMap<String, String> IUPAC = new HashMap<String, String>();
+	/* NUMBER is a HashSet that contains the numbers 0, 1, and 2 for CODOM and DOM data types */
+	public static final HashSet<String> NUMBER = new HashSet<String>();
 	
 	static {
 		IUPAC.put("A", "AA");
@@ -36,10 +39,15 @@ public final class Utils {
 		IUPAC.put(".", "--");
 		IUPAC.put("-", "--");
 		IUPAC.put("0", "+-");
+		
+		NUMBER.add("0");
+		NUMBER.add("1");
+		NUMBER.add("2");
+		
 	}
 	
 	/**
-	 * Compares the genotype records of f1 and f2 line by line
+	 * Compares the genotype records of f1 and f2 line by line.
 	 * @param out: The PrintWriter used to print to output.txt
 	 * @param f1: The first FileFormatInterface 
 	 * @param f2: The second FileFormatInterface 
@@ -48,8 +56,8 @@ public final class Utils {
 	{
 		while (!f1.isEOF() && !f2.isEOF())
 		{
-			ArrayList<String> lst1 = f1.getRecord();
-			ArrayList<String> lst2 = f2.getRecord();
+			List<String> lst1 = f1.getRecord();
+			List<String> lst2 = f2.getRecord();
 			if (lst1.size() != lst2.size())
 			{
 				out.println("Different Record Lengths at: " + f1.getRecordIndex());
@@ -65,24 +73,25 @@ public final class Utils {
 	}
 
 	/**
-	 * Converts a list of variants based on their initial format to a 2 Letter Nucleotide format
+	 * Converts a list of variants based on their initial format to a 2 letter nucleotide format.
 	 * @param recordlst: The original list of variants
 	 * @return The converted list of variants
 	 */
-	public static ArrayList<String> convertRecord(ArrayList<String> recordlst)
+	public static List<String> convertRecord(List<String> recordlist)
 	{
 		boolean isIUPAC = false;
 		
-		for (int i = 1; i < recordlst.size(); i++)
+		for (int i = 1; i < recordlist.size(); i++)
 		{
-			String variant = recordlst.get(i);
+			String variant = recordlist.get(i);
 			if (variant.length() == 0)
 			{
 				throw new IllegalArgumentException("Invalid Variant Type");
 			}
 			else if (variant.length() == 1)
 			{
-				if (!variant.equals("0") && !variant.equals("1") && !variant.equals("2"))
+				//JDLS - maybe use a set named dom/codom?
+				if (!NUMBER.contains(variant))
 				{
 					variant = IUPAC.get(variant);
 					isIUPAC = true;
@@ -93,7 +102,7 @@ public final class Utils {
 				}
 				else
 				{
-					recordlst.set(i, variant);
+					recordlist.set(i, variant);
 				}
 			}
 			else
@@ -105,21 +114,21 @@ public final class Utils {
 				}
 				else
 				{
-					recordlst.set(i, variant);
+					recordlist.set(i, variant);
 				}
 			}
 		}
 		if (isIUPAC)
 		{
-			for (int i = 0; i < recordlst.size(); i++)
+			for (int i = 0; i < recordlist.size(); i++)
 			{
-				if (recordlst.get(i).equals("0"))
+				if (recordlist.get(i).equals("0"))
 				{
-					recordlst.set(i, IUPAC.get("0"));
+					recordlist.set(i, IUPAC.get("0"));
 				}
 			}
 		}
 
-		return recordlst;
+		return recordlist;
 	}
 }

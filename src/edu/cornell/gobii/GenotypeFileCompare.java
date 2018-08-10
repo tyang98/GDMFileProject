@@ -3,16 +3,16 @@ import org.apache.commons.cli.*;
 import java.io.*;
 
 /**
- * Allows the input of two genotype matrix files and reports the differences between the variants of the files
- * Supports the datatypes: DOMINANT, CODOM, 2 Letter Nucleotides, and IUPAC
- * Allows file extension: CSV (.csv), TXT (.txt), HMP (hmp.txt)
- * CSV: First row contains dnarun information. First column contains DNA markers for each record 
+ * Allows the input of two genotype matrix files and reports the differences between the variants of the files.
+ * Supports the datatypes: DOMINANT, CODOM, 2 Letter Nucleotides, and IUPAC.
+ * Allows file extension: CSV (.csv), TXT (.txt), HMP (hmp.txt).
+ * CSV: First row contains dnarun information. First column contains DNA markers for each record. 
  * Every row after the first contains genotype records.
- * TXT: First row contains dnarun information. First column contains DNA markers for each record
+ * TXT: First row contains dnarun information. First column contains DNA markers for each record.
  * Every row after the first contains genotype records.
  * HMP: Contains an arbitrary number of rows with comments preceded by a hash symbol. 
  * First row without comments contains dnarun information. First column without comments contains dna markers. 
- * Columns 2-10 without comments contain meta information that will not be read. 
+ * Columns 2-11 without comments contain meta information that will not be read. 
  * 
  * @author Tony Yang
  * @version 0.1
@@ -42,15 +42,18 @@ public class GenotypeFileCompare {
 					new HelpFormatter().printHelp("ant", options );
 				}
 			
+				//Obtain directory for the output file
 				String directory = cmd.getOptionValue("o");
 				out = new PrintWriter(directory + "output.txt");
 				
+				//Obtain the name of the two files
 				String input1 = cmd.getOptionValue("i");  
 				String input2 = cmd.getOptionValue("t"); 
 				
 				FileFormatInterface i1;
 				FileFormatInterface i2;
 				
+				//Input file one
 				if (input1.endsWith(".hmp.txt"))
 				{
 					i1 = new HMPFileFormat(input1);
@@ -71,6 +74,7 @@ public class GenotypeFileCompare {
 					throw new IllegalArgumentException("Invalid File Extension");
 				}
 				
+				//Input file two
 				if (input2.endsWith(".hmp.txt"))
 				{
 					i2 = new HMPFileFormat(input2);

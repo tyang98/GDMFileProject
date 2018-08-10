@@ -2,7 +2,7 @@ package edu.cornell;
 import java.util.*;
 
 /**
- * Provides generic methods for genotype files of different file formats
+ * Provides generic methods for genotype files of different file formats.
  * @author Tony Yang
  * @version 0.1
  * @created 6.28.18
@@ -11,7 +11,7 @@ import java.util.*;
 public abstract class FileFormatAbstract implements FileFormatInterface {
 
 	/* dnarunList is a list of dnaruns */
-	protected ArrayList<String> dnarunList = new ArrayList<String>(); 
+	protected List<String> dnarunList = new LinkedList<String>(); 
 	
 	/* filename is the name of the input files */
 	private String filename = null; 
@@ -26,18 +26,19 @@ public abstract class FileFormatAbstract implements FileFormatInterface {
 	protected String delimiter = null; 
 	
 	/* marker is the name of each DNA marker */
-	protected String marker = null;
+	protected String marker = null; 
 	
+
 	/**
-	 * Returns the dnarunlist
+	 * Returns the dnarunlist.
 	 * @return The dnarunlist
 	 */
-	public ArrayList<String> getDnarunlist() {
+	public List<String> getDnarunlist() {
 		return dnarunList;
 	}
 
 	/**
-	 * Returns the filename
+	 * Returns the filename.
 	 * @return The filename
 	 */
 	public String getFilename() {
@@ -53,7 +54,7 @@ public abstract class FileFormatAbstract implements FileFormatInterface {
 	}
 
 	/**
-	 * Returns the scanner
+	 * Returns the scanner.
 	 * @return The scanner
 	 */
 	public Scanner getScanner() {
@@ -69,7 +70,7 @@ public abstract class FileFormatAbstract implements FileFormatInterface {
 	}
 
 	/* 
-	 * Returns the record index
+	 * Returns the record index.
 	 * @return The record index
 	 * @see edu.cornell.FileFormatInterface#getRecordIndex()
 	 */
@@ -94,17 +95,17 @@ public abstract class FileFormatAbstract implements FileFormatInterface {
 	}
 	
 	/**
-	 * Returns list of DNA runs
+	 * Returns list of DNA runs.
 	 * @return The list of DNA runs 
 	 */
-	public ArrayList<String> getDNAruns()
+	public List<String> getDNAruns()
 	{
 		dnarunList.remove(0);
 		return dnarunList;
 	}
 	
 	/**
-	 * Returns the DNA marker
+	 * Returns the DNA marker.
 	 * @return The DNA marker
 	 */
 	public String getMarker()
@@ -117,7 +118,29 @@ public abstract class FileFormatAbstract implements FileFormatInterface {
 	}
 	
 	/* 
-	 * Closes the input file if scanner is open
+	 * Returns the converted genotype record.
+	 * @return The converted genotype record as a list
+	 * @see edu.cornell.FileFormatInterface#getRecord()
+	 */
+	public List<String> getRecord()
+	{
+		List<String> recordlst = new LinkedList<String>();
+		String line;
+		if (sc.hasNextLine())
+		{
+			line = sc.nextLine();
+			recordIndex++;
+			String[] arr = line.trim().split(delimiter);
+			for (int i = 0; i < arr.length; i++)
+			{
+				recordlst.add(arr[i]);
+			}
+		}
+		recordlst = Utils.convertRecord(recordlst);
+		return recordlst;
+	}
+	/* 
+	 * Closes the input file if scanner is open.
 	 * @see edu.cornell.FileFormatInterface#closeFile()
 	 */
 	public void closeFile()
@@ -136,7 +159,7 @@ public abstract class FileFormatAbstract implements FileFormatInterface {
 	}
 	
 	/* 
-	 * Checks if it is the end-of-file
+	 * Checks if it is the end-of-file.
 	 * @return true or false depending on whether it is the end-of-file
 	 * @see edu.cornell.gobii.FileFormatInterface#isEOF()
 	 */

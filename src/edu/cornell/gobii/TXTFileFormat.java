@@ -1,7 +1,7 @@
 package edu.cornell;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -16,7 +16,7 @@ import java.util.Scanner;
 public class TXTFileFormat extends FileFormatAbstract implements FileFormatInterface {
 
 	/**
-	 * Constructs a new TXT file with filename
+	 * Constructs a new TXT file with filename.
 	 * @param filename: The name of the input file
 	 */
 	public TXTFileFormat(String filename) 
@@ -38,7 +38,7 @@ public class TXTFileFormat extends FileFormatAbstract implements FileFormatInter
 	}
 	
 	/* 
-	 * Loads the input file
+	 * Loads the input file.
 	 * @see edu.cornell.FileFormatInterface#loadFile()
 	 */
 	public void loadFile()
@@ -49,36 +49,13 @@ public class TXTFileFormat extends FileFormatAbstract implements FileFormatInter
 			{
 				line = sc.nextLine();
 			}
-			dnarunList = new ArrayList<String>(Arrays.asList(line.split(delimiter)));
+			dnarunList = new LinkedList<String>(Arrays.asList(line.split(delimiter)));
 		} 
 		catch (Exception e) 
 		{
 			e.getStackTrace();
-			closeFile();
 		}
 	}
 	
-	/* 
-	 * Returns the converted genotype record 
-	 * @return The converted genotype record as an ArrayList
-	 * @see edu.cornell.FileFormatInterface#getRecord()
-	 */
-	public ArrayList<String> getRecord()
-	{
-		ArrayList<String> recordlst = new ArrayList<String>();
-		String line;
-		if (sc.hasNextLine())
-		{
-			line = sc.nextLine();
-			recordIndex++;
-			String[] arr = line.trim().split(delimiter);
-			for (int i = 0; i < arr.length; i++)
-			{
-				recordlst.add(arr[i]);
-			}
-		}
-		recordlst = Utils.convertRecord(recordlst);
-		return recordlst;	
-	}
 	
 }

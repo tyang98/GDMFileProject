@@ -1,8 +1,9 @@
 package edu.cornell;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -16,7 +17,7 @@ public class HMPFileFormat extends FileFormatAbstract implements FileFormatInter
 	
 	
 	/**
-	 * Constructs a new HMP file with filename
+	 * Constructs a new HMP file with filename.
 	 * @param filename: The name of the input file
 	 */
 	public HMPFileFormat(String filename) 
@@ -37,8 +38,8 @@ public class HMPFileFormat extends FileFormatAbstract implements FileFormatInter
 	}
 	
 	/* 
-	 * Loads the input file
-	 * Checks for the first line of the file that starts without a hash 
+	 * Loads the input file.
+	 * Checks for the first line of the file that starts without a hash .
 	 * @see edu.cornell.FileFormatInterface#loadFile()
 	 */
 	public void loadFile()
@@ -57,10 +58,10 @@ public class HMPFileFormat extends FileFormatAbstract implements FileFormatInter
 					break;
 				}
 			}
-			dnarunList = new ArrayList<String>(Arrays.asList(line.split(delimiter)));
+			dnarunList = new LinkedList<String>(Arrays.asList(line.split(delimiter)));
 			if (!dnarunList.isEmpty())
 			{
-				dnarunList = (ArrayList<String>) dnarunList.subList(11, dnarunList.size());
+				dnarunList = (LinkedList<String>) dnarunList.subList(11, dnarunList.size());
 			}
 		} 
 		catch (Exception e)
@@ -70,13 +71,14 @@ public class HMPFileFormat extends FileFormatAbstract implements FileFormatInter
 	}
 	
 	/* 
-	 * Returns the converted genotype record 
-	 * @return The converted genotype record as an ArrayList
+	 * Returns the converted genotype record for HMP file format.
+	 * Does not include meta information from columns 2 to 11.  
+	 * @return The converted genotype record as a list
 	 * @see edu.cornell.FileFormatInterface#getRecord()
 	 */
-	public ArrayList<String> getRecord()
+	public List<String> getRecord()
 	{
-		ArrayList<String> recordlst = new ArrayList<String>();
+		List<String> recordlst = new LinkedList<String>();
 		String line;
 		if (sc.hasNextLine())
 		{

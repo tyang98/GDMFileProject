@@ -1,13 +1,9 @@
 package edu.cornell;
-import java.util.ArrayList;
+import java.util.List;
 
 /**
-<<<<<<< HEAD
  * Interface for genotype files of different file formats
  * Contains basic methods used for specific file formats
-=======
- * Generic interface for genotype files of different file formats
->>>>>>> 9022ebe43319a48b381e4b344e47d0f84a22aabc
  * @author Tony Yang
  * @version 0.1
  * @created 6.28.18
@@ -16,8 +12,8 @@ import java.util.ArrayList;
 public interface FileFormatInterface {
 	
 	/**
-	 * Loads the input file 
-	 * Initializes dnarunList with a new ArrayList containing dnarun informations
+	 * Loads the input file .
+	 * Initializes dnarunList with a new ArrayList containing dnarun informations.
 	 */
 	public void loadFile(); 
 	
@@ -28,21 +24,22 @@ public interface FileFormatInterface {
 	public void closeFile();
 	
 	/**
-	 * Reads through each line of the input file
-	 * Converts the genotype records for each line using convertRecord from Utils class
+	 * Reads through each line of the input file.
+	 * Converts the genotype records for each line using convertRecord from Utils class.
+	 * The record includes both the dna marker and genotype data.
 	 * Returns the converted genotype record 
-	 * @return The converted genotype record as an ArrayList
+	 * @return The converted genotype record as a list
 	 */
-	public ArrayList<String> getRecord();
+	public List<String> getRecord();
 	
 	/**
-	 * Returns the record index which is the position of the scanner in a file
+	 * Returns the record index indicating the current line position of the file.
 	 * @return The record index 
 	 */
 	public int getRecordIndex();
 	
 	/**
-	 * Checks if it is the end-of-file
+	 * Checks if it is the end-of-file.
 	 * @return true or false depending on whether it is the end-of-file
 	 */
 	public boolean isEOF();
