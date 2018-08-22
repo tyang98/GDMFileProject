@@ -11,7 +11,7 @@ import java.util.Scanner;
  * @author Tony Yang
  * @version 0.1
  * @created 6.28.18
- * @updated 8.2.18
+ * @updated 8.22.18
  */
 public class HMPFileFormat extends FileFormatAbstract implements FileFormatInterface {
 	
