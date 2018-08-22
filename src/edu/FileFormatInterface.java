@@ -3,7 +3,7 @@ import java.util.List;
 
 /**
  * Interface for genotype files of different file formats
- * Contains basic methods used for specific file formats
+ * Contains basic methods to handle data from various file types
  * @author Tony Yang
  * @version 0.1
  * @created 6.28.18
@@ -13,7 +13,7 @@ public interface FileFormatInterface {
 	
 	/**
 	 * Loads the input file .
-	 * Initializes dnarunList with a new ArrayList containing dnarun informations.
+	 * Initializes the dnarunList with a new ArrayList containing dnarun informations.
 	 */
 	public void loadFile(); 
 	

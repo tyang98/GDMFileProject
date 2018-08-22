@@ -90,7 +90,6 @@ public  final class Utils {
 			}
 			else if (variant.length() == 1)
 			{
-				//JDLS - maybe use a set named dom/codom?
 				if (!NUMBER.contains(variant))
 				{
 					variant = IUPAC.get(variant);
@@ -128,7 +127,6 @@ public  final class Utils {
 				}
 			}
 		}
-
 		return recordlist;
 	}
 }

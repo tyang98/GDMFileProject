@@ -167,5 +167,4 @@ public abstract class FileFormatAbstract implements FileFormatInterface {
 	{
 		return !sc.hasNext();
 	}
-
 }
