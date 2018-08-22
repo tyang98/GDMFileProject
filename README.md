@@ -5,4 +5,4 @@ The Main Class is GenotypeFileCompare.java and the arguments that are passed are
 The program can compare files of various sizes and extensions of .csv, .txt., and .hmp.txt.
 
 Example of input arguments from Apache Commandline:
--i /User/tyang/Desktop/Files/Datatype/file1.txt /Users/User/Desktop/Files/Datatype/file2.hmp.txt -o /Users/User/Desktop/
+-i /User/tyang/Desktop/Files/Datatype/file1.txt -t /Users/User/Desktop/Files/Datatype/file2.hmp.txt -o /Users/User/Desktop/
